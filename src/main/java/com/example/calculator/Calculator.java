@@ -7,7 +7,7 @@ public class Calculator {
         boolean calculator = true;
         int num1 = 0, num2 = 0;
         double result = 0;
-        String oper = "";
+        char oper = 0;
         String repeatCalculator = "";
 
         Scanner sc = new Scanner(System.in);
@@ -31,18 +31,18 @@ public class Calculator {
 
             // 연산자 입력
             System.out.println("사칙연산 기호를 입력하세요: ");
-            oper = sc.next();
-            if (!(oper.equals("+") || oper.equals("-") || oper.equals("*") || oper.equals("/"))) {
+            oper = sc.next().charAt(0);
+            if (!(oper == '+' || oper == '-' || oper == '*' || oper == '/')) {
                 System.out.println("올바른 연산자를 입력해주세요");
                 continue;
             }
 
             // 연산
             switch (oper) {
-                case "+" : result = num1 + num2; break;
-                case "-" : result = num1 - num2; break;
-                case "*" : result = num1 * num2; break;
-                case "/" :
+                case '+' : result = num1 + num2; break;
+                case '-' : result = num1 - num2; break;
+                case '*' : result = num1 * num2; break;
+                case '/' :
                     result = (double) num1 / num2;
                     if(num2 == 0) System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                     break;
@@ -51,7 +51,7 @@ public class Calculator {
             }
 
             // 출력 (0으로 나눈 경우 제외)
-            if (!(oper.equals("/") && num2 == 0)) {
+            if (!(oper == '/' && num2 == 0)) {
                 System.out.println("수식: " + num1 + " " + oper + " " + num2);
                 System.out.println("결과: " + result);
             }
