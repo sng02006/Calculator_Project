@@ -1,18 +1,20 @@
 package com.example.calculator;
 
-import java.util.List;
-import java.util.ArrayList;
+import jdk.dynalink.Operation;
 
-public class Calculator2 {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArithmeticCalculator {
     // 필드
     private int num1, num2;
     private char oper;
-    double result;
+    private double result;
     private List<Double> doubleList = new ArrayList<Double>();
 
     // 생성자
-    public Calculator2() {}
-    public Calculator2(int num1, int num2, char oper) {
+    public ArithmeticCalculator() {}
+    public ArithmeticCalculator(int num1, int num2, char oper) {
         this.num1 = num1;
         this.num2 = num2;
         this.oper = oper;
@@ -22,18 +24,19 @@ public class Calculator2 {
     //메서드
     // 연산
     public double calculate(int num1, int num2, char oper) {
-        switch (oper) {
-            case '+' : result = num1 + num2; break;
-            case '-' : result = num1 - num2; break;
-            case '*' : result = num1 * num2; break;
-            case '/' :
-                result = (double) num1 / num2;
-                if(num2 == 0) System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                break;
-            default :
-                System.out.println("연산 기호를 잘못 입력하셨습니다.");
-        }
-
+//        switch (oper) {
+//            case '+' : result = num1 + num2; break;
+//            case '-' : result = num1 - num2; break;
+//            case '*' : result = num1 * num2; break;
+//            case '/' :
+//                result = (double) num1 / num2;
+//                if(num2 == 0) System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+//                break;
+//            default :
+//                System.out.println("연산 기호를 잘못 입력하셨습니다.");
+//        }
+        OperatorType ot = OperatorType.PLUS.operation();
+        ot.operation();
         doubleList.add(result);
 
         return result;
