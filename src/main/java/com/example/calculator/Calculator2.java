@@ -45,9 +45,8 @@ public class Calculator2 {
     }
 
     // 리스트의 i번째 값을 val로 수정
-    public String setDoubleList(int i, double val) {
+    public void setDoubleList(int i, double val) {
         doubleList.set(i, val);
-        return doubleList.toString();
     }
 
     // 가장 먼저 저장된 데이터를 삭제
